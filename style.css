@@ -1,0 +1,257 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  &:hover {
+    cursor: pointer;
+  }
+}
+p {
+  color: hsl(0, 0%, 50%);
+  line-height: 2.5ch;
+}
+html,
+body {
+  width: 100%;
+  height: max-content;
+}
+
+header,
+footer {
+  padding-inline: 10%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: 3em;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+
+  @media screen and (min-width: 800px) {
+    & > span {
+      display: none;
+    }
+  }
+}
+header > nav {
+  & > ul {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+
+    & > li {
+      & > a {
+        transition: all 0.2s ease-out;
+        &:hover {
+          color: hsl(0, 94%, 66%);
+        }
+      }
+      & > button {
+        background-color: hsl(0, 94%, 66%);
+        outline: 2px solid hsl(0, 94%, 66%);
+        color: white;
+        padding: 0.75em 2.5em;
+        border-radius: 3px;
+        transition: all 0.25s ease-out;
+
+        &:hover {
+          background-color: #fff;
+          color: hsl(0, 94%, 66%);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10svh;
+}
+section {
+  padding-inline: 10%;
+}
+
+div.shapeBg {
+  background-color: hsl(231, 69%, 60%);
+  z-index: -1;
+}
+
+section#heroSection {
+  position: relative;
+  display: grid;
+  grid-template-columns: clamp(350px, 40%, 600px) auto;
+  padding-inline-end: 5%;
+  margin-top: 100px;
+
+  & > img {
+    justify-self: end;
+    object-fit: contain;
+  }
+  & > article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 2em;
+
+    & > h1 {
+      font-size: 2.5em;
+    }
+
+    & > div#getItButton {
+      display: flex;
+      gap: 1em;
+      justify-content: start;
+      align-items: center;
+      & > button {
+        padding: 1em 2.5em;
+        border-radius: 3px;
+        background-color: hsl(0, 0%, 90%);
+        box-shadow: 0 5px 8px 0px rgba(0, 0, 0, 0.15);
+        transition: all 0.25s ease-out;
+        outline: 2px solid transparent;
+
+        &:hover {
+          outline: 2px solid black;
+          background-color: #fff;
+        }
+
+        &:first-child {
+          background-color: hsl(231, 56%, 55%);
+          color: white;
+          &:hover {
+            background-color: #fff;
+            color: hsl(231, 56%, 55%);
+            outline: 2px solid hsl(231, 56%, 55%);
+          }
+        }
+      }
+    }
+  }
+
+  div.shapeBg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 25%;
+    height: 75%;
+    border-top-left-radius: 150px;
+    border-bottom-left-radius: 150px;
+  }
+}
+
+section#featureSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  overflow: hidden;
+  max-width: 100%;
+
+  & > p {
+    width: clamp(200px, 50%, 500px);
+    text-align: center;
+  }
+
+  & > ul {
+    display: flex;
+    border-bottom: 2px solid hsl(0, 0%, 90%);
+    justify-content: center;
+    align-items: center;
+    & > li {
+      padding: 1em 2em;
+      height: 100%;
+      color: hsl(0, 0%, 40%);
+      &:hover {
+        cursor: pointer;
+        & > p {
+          color: hsl(0, 94%, 66%);
+        }
+      }
+
+      &.active {
+        border-bottom: 3px solid hsl(0, 94%, 66%);
+        & > p {
+          color: hsl(0, 0%, 0%);
+        }
+      }
+    }
+  }
+}
+
+div#carouselContainer {
+  padding-block: 2em;
+  display: grid;
+  grid-template-columns: repeat(3, 100%);
+  place-items: left center;
+  overflow: hidden;
+  max-width: 80%;
+  width: fit-content;
+
+  & > div.shapeBg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40%;
+    height: 50%;
+    border-radius: 0 150px 150px 0;
+  }
+
+  & > div.carousel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    & > article {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      width: clamp(200px, 50%, 500px);
+
+      & > button {
+        padding: 1em 2em;
+        border-radius: 3px;
+        background-color: hsl(231, 69%, 60%);
+        color: white;
+        transition: all 0.25s ease-out;
+        outline: 2px solid transparent;
+
+        &:hover {
+          background-color: #fff;
+          color: hsl(231, 56%, 55%);
+          outline: 2px solid hsl(231, 69%, 60%);
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background-color: hsl(229, 31%, 21%);
+}
