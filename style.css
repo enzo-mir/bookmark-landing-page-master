@@ -183,6 +183,7 @@ section#featureSection {
     border-bottom: 2px solid hsl(0, 0%, 90%);
     justify-content: center;
     align-items: center;
+
     & > li {
       padding: 1em 2em;
       height: 100%;
@@ -202,17 +203,16 @@ section#featureSection {
       }
     }
   }
-}
 
-div#carouselContainer {
-  padding-block: 2em;
-  display: grid;
-  grid-template-columns: repeat(3, 100%);
-  place-items: left center;
-  overflow: hidden;
-  max-width: 80%;
-  width: fit-content;
-
+  &:has(ul > li:first-child.active) > div#carouselContainer {
+    transform: translateX(0%);
+  }
+  &:has(ul > li:nth-child(2).active) > div#carouselContainer {
+    transform: translateX(-120%);
+  }
+  &:has(ul > li:last-child.active) > div#carouselContainer {
+    transform: translateX(-240%);
+  }
   & > div.shapeBg {
     position: absolute;
     bottom: 0;
@@ -221,10 +221,21 @@ div#carouselContainer {
     height: 50%;
     border-radius: 0 150px 150px 0;
   }
+}
+
+div#carouselContainer {
+  padding-block: 2em;
+  display: grid;
+  gap: 20%;
+  grid-template-columns: repeat(3, 100%);
+  place-items: center;
+  max-width: 100%;
+  width: fit-content;
 
   & > div.carousel {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 10%;
     align-items: center;
     width: 100%;
 
