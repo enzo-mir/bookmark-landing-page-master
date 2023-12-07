@@ -218,8 +218,274 @@ section#featureSection {
     bottom: 0;
     left: 0;
     width: 40%;
-    height: 50%;
+    height: 45%;
     border-radius: 0 150px 150px 0;
+  }
+}
+
+section#extensionSection {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 400px;
+  place-items: center;
+  gap: 2em;
+
+  & > p {
+    width: clamp(200px, 50%, 500px);
+    text-align: center;
+  }
+
+  & > div.extensionCardContainer {
+    display: flex;
+    gap: 2em;
+    width: 100%;
+    height: 100%;
+    align-self: flex-start;
+
+    & > article.extensionCard {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: fit-content;
+      gap: 4em;
+      align-items: center;
+      width: clamp(350px, 100%, 600px);
+      background-color: #fff;
+      border-radius: 1em;
+      box-shadow: 0 7px 8px 0px rgba(0, 0, 0, 0.15);
+      padding: 2em 1em 1em 1em;
+
+      & > div {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        gap: 0.5em;
+
+        & > p {
+          font-size: 0.8em;
+        }
+
+        & > img {
+          padding-block: 0em 1em;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          height: 2em;
+          width: 100%;
+          background: url(./images/bg-dots.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 150%;
+          top: 75%;
+          transform: translateY(-50%);
+        }
+      }
+
+      & > button {
+        padding: 1em 2.5em;
+        background-color: hsl(231, 69%, 60%);
+        width: 100%;
+        color: white;
+        border-radius: 3px;
+        box-shadow: 0 5px 8px 0px rgba(0, 0, 0, 0.15);
+        transition: all 0.25s ease-out;
+        outline: 2px solid transparent;
+
+        &:hover {
+          background-color: #fff;
+          color: hsl(231, 56%, 55%);
+          outline: 2px solid hsl(231, 56%, 55%);
+        }
+      }
+
+      &:nth-child(2) {
+        align-self: center;
+      }
+
+      &:last-child {
+        align-self: end;
+      }
+    }
+  }
+}
+
+section#accordionSection {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  gap: 2em;
+
+  & > p {
+    width: clamp(200px, 50%, 500px);
+    text-align: center;
+  }
+
+  & > button {
+    padding: 1em 2em;
+    background-color: hsl(231, 69%, 60%);
+    color: white;
+    border-radius: 3px;
+    box-shadow: 0 5px 8px 0px rgba(0, 0, 0, 0.15);
+    transition: all 0.25s ease-out;
+    outline: 2px solid transparent;
+
+    &:hover {
+      background-color: #fff;
+      color: hsl(231, 56%, 55%);
+      outline: 2px solid hsl(231, 56%, 55%);
+    }
+  }
+}
+
+section#joinSection {
+  display: grid;
+  place-items: center;
+  gap: 3em;
+  padding: 4em 10%;
+  background-color: hsl(231, 69%, 60%);
+  width: 100%;
+  text-align: center;
+  color: white;
+  & > sub {
+    letter-spacing: 0.5ch;
+    text-transform: uppercase;
+  }
+
+  & > h2 {
+    font-weight: lighter;
+  }
+
+  & > form {
+    position: relative;
+    display: grid;
+    grid-template-columns: 300px auto;
+    place-items: center;
+    gap: 1em;
+    z-index: 1;
+
+    & > input {
+      position: relative;
+      padding: 1em;
+      height: 100%;
+      border-radius: 5px;
+      border: none;
+      width: 100%;
+    }
+
+    & > button {
+      padding: 1em 2em;
+      height: 100%;
+      border-radius: 3px;
+      background-color: hsl(0, 94%, 66%);
+      transition: all 0.25s ease-out;
+      outline: 2px solid transparent;
+      color: white;
+
+      &:hover {
+        background-color: #fff;
+        outline: 2px solid hsl(0, 94%, 66%);
+        color: hsl(0, 94%, 66%);
+      }
+    }
+
+    &:has(input.invalid) {
+      & > label {
+        display: initial;
+      }
+      & > input {
+        outline: 2px solid hsl(0, 94%, 66%);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 275px;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        transform: translateY(-50%);
+        background-image: url(./images/icon-error.svg);
+        background-size: contain;
+        background-position: center;
+        z-index: 50;
+      }
+    }
+
+    & > label {
+      display: none;
+      position: absolute;
+      text-align: left;
+      padding: 45px 0 20px 10px;
+      left: 0;
+      background-color: hsl(0, 94%, 66%);
+      top: 0px;
+      height: 150%;
+      width: 300px;
+      font-size: 0.8em;
+      z-index: -1;
+      border-radius: 3px;
+    }
+  }
+}
+
+div#accordion {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  transition: all 0.25s ease-out;
+
+  & > article {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    row-gap: 1.5em;
+    border-bottom: 1px solid hsl(0, 0%, 90%);
+
+    &:first-child {
+      border-top: 1px solid hsl(0, 0%, 90%);
+      padding-block-start: 2em;
+    }
+
+    &[data-open="true"] {
+      padding-block-end: 2em;
+
+      & > div > p {
+        height: 100%;
+      }
+
+      & > svg {
+        transform: rotateZ(180deg);
+        & > path {
+          stroke: hsl(0, 94%, 66%);
+        }
+      }
+    }
+
+    & > svg {
+      transition: all 0.25s ease-out;
+
+      & > path {
+        transition: all 0.25s ease-out;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    & > div {
+      grid-area: 2 / 1 / 3 / 3;
+      & > p {
+        transition: all 0.25s ease-out;
+        height: 0px;
+      }
+    }
   }
 }
 
@@ -264,5 +530,36 @@ div#carouselContainer {
 }
 
 footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: hsl(229, 31%, 21%);
+  padding-block: 2em;
+
+  & > ul {
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 2.5em;
+
+    & > li {
+      & > svg {
+        & > path {
+          transition: all 0.2s ease-out;
+        }
+        &:hover {
+          cursor: pointer;
+          & > path {
+            fill: hsl(0, 94%, 66%);
+          }
+        }
+      }
+      & > a {
+        transition: all 0.2s ease-out;
+        &:hover {
+          color: hsl(0, 94%, 66%);
+        }
+      }
+    }
+  }
 }
