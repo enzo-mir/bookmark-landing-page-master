@@ -35,6 +35,7 @@ body {
 @media screen and (max-width: 800px) {
   body {
     &:has(header > nav.open) {
+      overflow: hidden;
       & > footer > ul:last-child {
         position: absolute;
         top: 90%;
