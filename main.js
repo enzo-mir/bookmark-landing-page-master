@@ -2,6 +2,8 @@ const carouselContainer = document.getElementById("carouselContainer");
 const featureSection = document.getElementById("featureSection");
 const navLiFeatures = featureSection.querySelectorAll("ul > li");
 const accordionontainer = document.getElementById("accordion");
+const nav = document.querySelector("nav");
+const burgerMenu = document.getElementById("burgerMenu");
 
 function activeFeature(target) {
   navLiFeatures.forEach((li) => {
@@ -33,4 +35,8 @@ document.querySelector("form").addEventListener("submit", (e) => {
     });
   }
   e.preventDefault();
+});
+
+burgerMenu.addEventListener("click", () => {
+  nav.classList.toggle("open");
 });
