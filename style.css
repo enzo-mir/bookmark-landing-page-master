@@ -206,12 +206,22 @@ section#featureSection {
 
   &:has(ul > li:first-child.active) > div#carouselContainer {
     transform: translateX(0%);
+
+    & > div.carousel:first-child {
+      opacity: 1;
+    }
   }
   &:has(ul > li:nth-child(2).active) > div#carouselContainer {
     transform: translateX(-120%);
+    & > div.carousel:nth-child(2) {
+      opacity: 1;
+    }
   }
   &:has(ul > li:last-child.active) > div#carouselContainer {
     transform: translateX(-240%);
+    & > div.carousel:last-child {
+      opacity: 1;
+    }
   }
   & > div.shapeBg {
     position: absolute;
@@ -448,6 +458,14 @@ div#accordion {
     row-gap: 1.5em;
     border-bottom: 1px solid hsl(0, 0%, 90%);
 
+    & h4 {
+      transition: color 0.2s ease-out;
+      &:hover {
+        color: hsl(0, 94%, 66%);
+        cursor: pointer;
+      }
+    }
+
     &:first-child {
       border-top: 1px solid hsl(0, 0%, 90%);
       padding-block-start: 2em;
@@ -496,6 +514,7 @@ div#carouselContainer {
   grid-template-columns: repeat(3, 100%);
   place-items: center;
   max-width: 100%;
+  transition: all 0.5s ease-out;
   width: fit-content;
 
   & > div.carousel {
@@ -504,6 +523,8 @@ div#carouselContainer {
     gap: 10%;
     align-items: center;
     width: 100%;
+    transition: all 0.2s ease-out;
+    opacity: 0;
 
     & > article {
       display: flex;
