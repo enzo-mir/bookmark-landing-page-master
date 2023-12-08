@@ -22,4 +22,15 @@ accordionontainer.querySelectorAll("article").forEach((article) => {
   });
 });
 
-document.querySelector("form").addEventListener("submit", (e) => e.preventDefault());
+document.querySelector("form").addEventListener("submit", (e) => {
+  const inputForm = e.target.children[1];
+  if (new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g).test(inputForm.value)) {
+    inputForm.classList.contains("invalid") ? inputForm.classList.remove("invalid") : null;
+  } else {
+    inputForm.classList.add("invalid");
+    inputForm.addEventListener("blur", () => {
+      inputForm.classList.contains("invalid") ? inputForm.classList.remove("invalid") : null;
+    });
+  }
+  e.preventDefault();
+});
