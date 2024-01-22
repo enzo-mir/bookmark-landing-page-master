@@ -128,7 +128,7 @@ header {
       }
 
       & > nav {
-        height: 50svh;
+        height: 100svh;
       }
     }
   }
@@ -293,7 +293,7 @@ section#heroSection {
     place-items: center;
     gap: 5em;
     & > img {
-      width: clamp(400px, 100%, 100px);
+      width: clamp(350px, 100%, 100px);
     }
 
     & > article {
